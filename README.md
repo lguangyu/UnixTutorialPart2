@@ -5,6 +5,9 @@ UNIX tutorial part2: grep, sed, for and intro to regular expressions
 Download
 --------
 
+Download this repository as shown below
+![](image/download.png)
+and decompress it.
 
 
 Prepare
