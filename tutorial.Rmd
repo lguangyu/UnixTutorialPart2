@@ -1,0 +1,44 @@
+---
+title: UNIX tutorial part2: grep, sed, for and intro to regular expressions
+data: 2019-04-31
+output:
+  html_document:
+    toc: true
+	toc_float: true
+	toc_depth: 3
+---
+
+
+# `for` loop
+
+
+# Intro to regular expression
+
+
+
+
+# Using regex in `grep`
+
+
+
+
+# Using regex in `sed`
+
+
+
+
+# Composing commands into `bash` script
+
+
+
+# Other useful commands
+
+## `man`: check program documentation
+
+
+
+## `alias`: create shortcut for command call
+
+
+
+## `ln` (link): make symbolic link to large files instead of `cp`
