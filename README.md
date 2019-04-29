@@ -6,8 +6,9 @@ Download
 --------
 
 Download this repository as shown below
-![](image/download.png)
-and decompress it.
+![](image/download.png);
+
+Decompress it to some convenient location.
 
 
 Prepare
