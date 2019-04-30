@@ -9,6 +9,72 @@ output:
 ---
 
 
+## Linux file system brief
+
+When starting a terminal, you should see some thing below:
+
+```
+Alice@PC: ~$ ....
+```
+
+The first part is in `user@host` format (by default).
+E.g. `Alice` is the user name you currently logged in,
+	`PC` is the name of the host (computer, server, etc.).
+
+The second part tells the current directory you are in,
+	e.g. `~` in the above example;
+	`~` is the shortcut to refer to the user's `home directory`.
+By default system setting, Alice's home directory is `/home/Alice`
+	(may be changed by the system adminitrator).
+Below command also shows your home directory path
+	by using environment variable `$HOME`:
+
+```bash
+echo $HOME
+```
+
+The last dollar sign `$` indicates you are in *normal previlige*;
+	a superuser (with adminitrative previlige) will see a `#` instead.
+
+### Absolute and relative path
+
+![http://researchhubs.com/post/computing/linux-cmd/linux-directory.html](image/unix_dir_struct.png)
+
+`Absolute path` is the complete path to locate a file.
+It starts from the root of file system,
+	on UNIX-like systems, this is the system root `/`,
+	on Windowds, this is any volume drive root, e.g. `C:\`.
+Absolute path is unique, hence refer to a file from *anywhere*
+	results identically to that file.
+	(it is equivalent to say there is only one *system root directory* per system).
+
+`Relative path` is a shortcut to refer to a file
+	*relative to current directory*
+	(absolute path of current directly can be acquired by `pwd`).
+Hence files specified by relative path from different locations are different,
+	for example Alice types `cd Documents` in her home directory descends into `/home/Alice/Documents`,
+	while Bob does the same thing in his home directly (`/home/Bob`) will descend into `/home/Bob/Documents`.
+You can always refer to the current location by `.`, e.g. `./fastq/R1.fastq`,
+	which is identical to `$(pwd)/fastq/R1.fastq`.
+By default, `fastq/R1.fastq` has identical behavior, which `./` is implicitly added.
+
+### Good practice to use absolute/relative paths
+
+Absolute path:
+
+* Referring to a system file/executable that should be system-wise unique;
+	examples include a reference file from another user's directory,
+	a shared database file, etc.
+* Too many `..` (upper directory) calls needed to make a relative path.
+* Override system environments, e.g. force using `/shared/centos7/python/3.7.1/bin/python3`
+	instead of direct call `python3` (which is usually `/usr/bin/python3`).
+
+Relative path:
+
+* Cross-reference between files that should be kept as isolated, enclosed and portable.
+* Subdirectories of a project or sample.
+
+
 ## `for` loop
 
 `for` command is the most used "loop structure", means to do repetitive work
@@ -405,7 +471,7 @@ The safer way is call `rm -i *.fastq` which `-i` forces an interactive mode,
 But use `rm -i` instead of `rm` everytime doubles the keystrokes.
 The satisfied answer is use alias:
 
-```
+```bash
 alias rm='rm -i'
 ```
 
